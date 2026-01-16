@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "Infini",
+    "subtitle": "L'excellence du voyage privé sur la Côte d'Azur",
+    "cta": "Demander un devis"
+  },
+  "services": {
+    "title": "Nos Prestations",
+    "transfers": {
+      "title": "Transferts",
+      "description": "Aéroports de Nice, Marseille et Toulon. Gares de Toulon et Les Arcs-Draguignan."
+    },
+    "availability": {
+      "title": "Mise à disposition",
+      "description": "Votre chauffeur privé à la journée pour tous vos déplacements."
+    },
+    "events": {
+      "title": "Événements",
+      "description": "Festivals, soirées privées, mariages. Un service sur-mesure pour vos moments exceptionnels."
+    }
+  },
+  "vehicle": {
+    "title": "Notre Véhicule",
+    "subtitle": "Mercedes Classe V Extra-Long",
+    "features": {
+      "passengers": "6 places passagers",
+      "luggage": "Capacité bagages pour 6 personnes",
+      "roof": "Toit étoilé",
+      "tv": "TV à bord",
+      "interior": "Intérieur cuir beige",
+      "exterior": "Extérieur full black",
+      "seats": "Sièges auto disponibles (9-25kg)"
+    }
+  },
+  "about": {
+    "title": "Qui sommes-nous",
+    "description": "Service de chauffeur privé premium sur la Côte d'Azur. Véhicule neuf, confort optimal et service personnalisé pour une expérience de voyage exceptionnelle."
+  },
+  "coverage": {
+    "title": "Zone desservie",
+    "areas": {
+      "saintTropez": "Golfe de Saint-Tropez",
+      "monaco": "Monaco",
+      "cannes": "Cannes",
+      "antibes": "Antibes",
+      "nice": "Nice"
+    },
+    "airports": "Aéroports : Nice, Marseille, Toulon",
+    "stations": "Gares : Toulon, Les Arcs-Draguignan"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Une demande ? Un devis ? Contactez-nous, réponse dans l'heure.",
+    "phone": "Téléphone",
+    "email": "Email",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "message": "Message",
+      "submit": "Envoyer",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur lors de l'envoi du message."
+    }
+  },
+  "footer": {
+    "legal": "Mentions légales",
+    "copyright": "© 2025 Infini by MHV. Tous droits réservés."
+  },
+  "nav": {
+    "services": "Prestations",
+    "vehicle": "Véhicule",
+    "about": "À propos",
+    "coverage": "Zone",
+    "contact": "Contact"
+  }
+}

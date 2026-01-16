@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "Infini",
+    "subtitle": "Premium private travel on the French Riviera",
+    "cta": "Request a quote"
+  },
+  "services": {
+    "title": "Our Services",
+    "transfers": {
+      "title": "Transfers",
+      "description": "Nice, Marseille and Toulon airports. Toulon and Les Arcs-Draguignan train stations."
+    },
+    "availability": {
+      "title": "Daily Availability",
+      "description": "Your private driver for the day for all your travels."
+    },
+    "events": {
+      "title": "Events",
+      "description": "Festivals, private parties, weddings. A tailor-made service for your exceptional moments."
+    }
+  },
+  "vehicle": {
+    "title": "Our Vehicle",
+    "subtitle": "Mercedes V-Class Extra-Long",
+    "features": {
+      "passengers": "6 passenger seats",
+      "luggage": "Luggage capacity for 6 people",
+      "roof": "Starry roof",
+      "tv": "On-board TV",
+      "interior": "Beige leather interior",
+      "exterior": "Full black exterior",
+      "seats": "Child seats available (9-25kg)"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Premium private driver service on the French Riviera. Brand new vehicle, optimal comfort and personalized service for an exceptional travel experience."
+  },
+  "coverage": {
+    "title": "Service Area",
+    "areas": {
+      "saintTropez": "Saint-Tropez Gulf",
+      "monaco": "Monaco",
+      "cannes": "Cannes",
+      "antibes": "Antibes",
+      "nice": "Nice"
+    },
+    "airports": "Airports: Nice, Marseille, Toulon",
+    "stations": "Train Stations: Toulon, Les Arcs-Draguignan"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "A request? A quote? Contact us, response within the hour.",
+    "phone": "Phone",
+    "email": "Email",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send",
+      "success": "Message sent successfully!",
+      "error": "Error sending message."
+    }
+  },
+  "footer": {
+    "legal": "Legal Notice",
+    "copyright": "© 2025 Infini by MHV. All rights reserved."
+  },
+  "nav": {
+    "services": "Services",
+    "vehicle": "Vehicle",
+    "about": "About",
+    "coverage": "Area",
+    "contact": "Contact"
+  }
+}
