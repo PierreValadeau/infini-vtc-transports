@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui/card'
+import vehicleImage from '@/assets/images/photo-van/photo-avant-exterieur.jpeg'
 
 export default function About() {
   const { t } = useTranslation()
@@ -13,10 +14,16 @@ export default function About() {
 
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Placeholder images */}
+            {/* Vehicle image */}
             <div className="space-y-4">
-              <Card className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 flex items-center justify-center">
-                <p className="text-gray-500">Photo du chauffeur</p>
+              <Card className="overflow-hidden border-gray-700 hover:border-gold/50 transition-colors">
+                <div className="aspect-square w-full overflow-hidden">
+                  <img
+                    src={vehicleImage}
+                    alt="Infini VTC - Notre service"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
               </Card>
             </div>
 

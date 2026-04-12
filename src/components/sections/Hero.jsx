@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
+import heroVideo from '@/assets/images/video-aerienne.mp4'
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -17,11 +18,16 @@ export default function Hero() {
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black z-10" />
 
-      {/* Placeholder for hero image */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-        </div>
+      {/* Hero video */}
+      <div className="absolute inset-0">
+        <video
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover object-center"
+        />
       </div>
 
       {/* Content */}

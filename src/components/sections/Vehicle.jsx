@@ -1,6 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { Users, Luggage, Star, Tv, Palette, Circle, Baby } from 'lucide-react'
+import { Users, Luggage, Star, Tv, Circle, Baby } from 'lucide-react'
 import { Card } from '@/components/ui/card'
+import photo1 from '@/assets/images/photo-van/photo-avant-exterieur.jpeg'
+import photo2 from '@/assets/images/photo-van/photo-arriere-exterieur.jpeg'
+import photo3 from '@/assets/images/photo-van/photo-avant-volant.jpeg'
+import photo4 from '@/assets/images/photo-van/photo-avant-volant2.jpeg'
+import photo5 from '@/assets/images/photo-van/photo-arriere-interieur.jpeg'
+import photo6 from '@/assets/images/photo-van/photo-arriere-interieur2.jpeg'
 
 export default function Vehicle() {
   const { t } = useTranslation()
@@ -10,7 +16,6 @@ export default function Vehicle() {
     { icon: Luggage, text: t('vehicle.features.luggage') },
     { icon: Star, text: t('vehicle.features.roof') },
     { icon: Tv, text: t('vehicle.features.tv') },
-    { icon: Palette, text: t('vehicle.features.interior') },
     { icon: Circle, text: t('vehicle.features.exterior') },
     { icon: Baby, text: t('vehicle.features.seats') },
   ]
@@ -28,14 +33,26 @@ export default function Vehicle() {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Placeholder for vehicle images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <Card className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 flex items-center justify-center">
-              <p className="text-gray-500">Photo véhicule extérieur</p>
-            </Card>
-            <Card className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 flex items-center justify-center">
-              <p className="text-gray-500">Photo véhicule intérieur</p>
-            </Card>
+          {/* Vehicle images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              { src: photo1, alt: 'Mercedes Classe V - Avant extérieur' },
+              { src: photo2, alt: 'Mercedes Classe V - Arrière extérieur' },
+              { src: photo3, alt: 'Mercedes Classe V - Volant' },
+              { src: photo4, alt: 'Mercedes Classe V - Volant 2' },
+              { src: photo5, alt: 'Mercedes Classe V - Intérieur arrière' },
+              { src: photo6, alt: 'Mercedes Classe V - Intérieur arrière 2' },
+            ].map((photo, index) => (
+              <Card key={index} className="overflow-hidden border-gray-700 hover:border-gold/50 transition-colors">
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </Card>
+            ))}
           </div>
 
           {/* Features grid */}

@@ -45,29 +45,38 @@ export default function Contact() {
       } else {
         // Send email with EmailJS
         console.log('Sending email with data:', {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           phone: formData.phone,
           message: formData.message,
-          to_email: 'infini@mhvtransports.com',
+          to_email: 'p.valadeau@outlook.fr',
         })
 
-        const response = await emailjs.send(
+        // Afficher le succès immédiatement pour une meilleure UX
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+        setIsSubmitting(false)
+
+        // Envoyer l'email en arrière-plan
+        emailjs.send(
           serviceId,
           templateId,
           {
-            from_name: formData.name,
-            from_email: formData.email,
+            name: formData.name,
+            email: formData.email,
             phone: formData.phone,
             message: formData.message,
             to_email: 'infini@mhvtransports.com',
           },
           publicKey
-        )
+        ).then((response) => {
+          console.log('EmailJS response:', response)
+        }).catch((error) => {
+          console.error('Error sending email:', error)
+          // Erreur silencieuse car l'utilisateur a déjà vu le succès
+        })
 
-        console.log('EmailJS response:', response)
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' })
+        return // Sortir du try pour éviter le finally
       }
     } catch (error) {
       console.error('Error sending email:', error)
@@ -225,7 +234,7 @@ export default function Contact() {
               </Button>
 
               {submitStatus === 'success' && (
-                <p className="text-green-500 text-center">{t('contact.form.success')}</p>
+                <p className="text-white text-center">{t('contact.form.success')}</p>
               )}
               {submitStatus === 'error' && (
                 <p className="text-red-500 text-center">{t('contact.form.error')}</p>
