@@ -63,17 +63,13 @@ export default function Contact() {
           to_email: 'infini@mhvtransports.com',
         }
 
-        console.log('Sending email with data:', emailData)
-
         // Envoyer l'email et attendre la réponse
-        const response = await emailjs.send(
+        await emailjs.send(
           serviceId,
           templateId,
           emailData,
           publicKey
         )
-
-        console.log('EmailJS response:', response)
 
         // Réinitialiser le formulaire après envoi réussi
         setSubmitStatus('success')

@@ -1,10 +1,22 @@
 import { useTranslation } from 'react-i18next'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
-import heroVideo from '@/assets/images/video-aerienne.mp4'
+import heroVideoMp4 from '@/assets/images/video-aerienne.mp4'
+import heroVideoWebm from '@/assets/images/video-aerienne.webm'
+import videoPoster from '@/assets/images/video-poster.webp'
 
 export default function Hero() {
   const { t } = useTranslation()
+  const [videoLoaded, setVideoLoaded] = useState(false)
+
+  useEffect(() => {
+    // Load video after initial paint to improve LCP
+    const timer = setTimeout(() => {
+      setVideoLoaded(true)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [])
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -18,17 +30,27 @@ export default function Hero() {
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black z-10" />
 
-      {/* Hero video */}
+      {/* Hero background - Image first, then video */}
       <div className="absolute inset-0">
-        <video
-          src={heroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover object-center"
-        />
+        {!videoLoaded ? (
+          <img
+            src={videoPoster}
+            alt="Côte d'Azur vue aérienne"
+            className="w-full h-full object-cover object-center"
+            fetchpriority="high"
+          />
+        ) : (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover object-center"
+          >
+            <source src={heroVideoWebm} type="video/webm" />
+            <source src={heroVideoMp4} type="video/mp4" />
+          </video>
+        )}
       </div>
 
       {/* Content */}

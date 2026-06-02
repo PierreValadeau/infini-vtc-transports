@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui/card'
-import vehicleImage from '@/assets/images/photo-van/photo-avant-exterieur.jpeg'
+import vehicleImage from '@/assets/images/photo-van/photo-avant-exterieur.jpg'
+import vehicleImageWebp from '@/assets/images/photo-van/photo-avant-exterieur.webp'
 
 export default function About() {
   const { t } = useTranslation()
@@ -18,16 +19,19 @@ export default function About() {
             <div className="space-y-4">
               <Card className="overflow-hidden border-gray-700 hover:border-gold/50 transition-colors">
                 <div className="aspect-square w-full overflow-hidden">
-                  <img
-                    src={vehicleImage}
-                    alt="Infini VTC - Notre service"
-                    width="1000"
-                    height="1000"
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
-                    decoding="async"
-                    style={{ imageRendering: 'high-quality' }}
-                  />
+                  <picture>
+                    <source srcSet={vehicleImageWebp} type="image/webp" />
+                    <img
+                      src={vehicleImage}
+                      alt="Infini VTC - Notre service"
+                      width="1000"
+                      height="1000"
+                      className="w-full h-full object-cover object-center"
+                      loading="lazy"
+                      decoding="async"
+                      style={{ imageRendering: 'high-quality' }}
+                    />
+                  </picture>
                 </div>
               </Card>
             </div>

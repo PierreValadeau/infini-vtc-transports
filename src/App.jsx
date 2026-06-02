@@ -1,13 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
-import Services from './components/sections/Services'
-import Vehicle from './components/sections/Vehicle'
-import About from './components/sections/About'
-import Coverage from './components/sections/Coverage'
-import Contact from './components/sections/Contact'
+
+// Lazy load sections below the fold
+const Services = lazy(() => import('./components/sections/Services'))
+const Vehicle = lazy(() => import('./components/sections/Vehicle'))
+const About = lazy(() => import('./components/sections/About'))
+const Coverage = lazy(() => import('./components/sections/Coverage'))
+const Contact = lazy(() => import('./components/sections/Contact'))
 
 function App() {
   const { i18n } = useTranslation()
@@ -26,11 +28,13 @@ function App() {
       <Header />
       <main id="main-content">
         <Hero />
-        <Services />
-        <Vehicle />
-        <About />
-        <Coverage />
-        <Contact />
+        <Suspense fallback={<div className="h-screen" />}>
+          <Services />
+          <Vehicle />
+          <About />
+          <Coverage />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
     </div>

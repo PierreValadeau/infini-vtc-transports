@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import LanguageSwitcher from '@/components/common/LanguageSwitcher'
+import logoInfini from '@/assets/images/logo-infini.png'
 
 export default function Header() {
   const { t } = useTranslation()
@@ -56,11 +57,17 @@ export default function Header() {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-2xl font-bold text-white hover:text-gray-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
+            className="hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
             aria-label="Retour à l'accueil Infini VTC"
             title="Infini VTC - Retour à l'accueil"
           >
-            Infini
+            <img
+              src={logoInfini}
+              alt="Infini VTC Logo"
+              className="h-12 w-auto"
+              width="120"
+              height="48"
+            />
           </button>
 
           {/* Desktop Navigation */}
