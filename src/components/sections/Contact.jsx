@@ -49,9 +49,9 @@ export default function Contact() {
       if (!serviceId || !templateId || !publicKey) {
         // If EmailJS is not configured, simulate success for demo
         console.warn('EmailJS not configured. Add credentials to .env file.')
-        await new Promise(resolve => setTimeout(resolve, 1000))
         setSubmitStatus('success')
         setFormData({ name: '', email: '', phone: '', message: '' })
+        setGdprConsent(false)
       } else {
         // Send email with EmailJS
         const emailData = {
@@ -74,9 +74,10 @@ export default function Contact() {
 
         console.log('EmailJS response:', response)
 
-        // Afficher le succès seulement si l'envoi a réussi
+        // Réinitialiser le formulaire après envoi réussi
         setSubmitStatus('success')
         setFormData({ name: '', email: '', phone: '', message: '' })
+        setGdprConsent(false)
       }
     } catch (error) {
       console.error('Error sending email:', error)
