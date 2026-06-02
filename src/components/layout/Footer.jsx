@@ -43,13 +43,13 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Suivez-nous</h4>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/infinitransports"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
             >
               <Instagram size={18} />
-              <span>Instagram</span>
+              <span>@infinitransports</span>
             </a>
           </div>
         </div>
