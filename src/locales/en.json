@@ -60,7 +60,11 @@
       "message": "Message",
       "submit": "Send",
       "success": "Message sent successfully!",
-      "error": "Error sending message."
+      "error": "Error sending message.",
+      "gdpr": {
+        "text": "I agree that my data will be used to process my request in accordance with the",
+        "required": "You must accept the privacy policy to submit the form."
+      }
     }
   },
   "footer": {

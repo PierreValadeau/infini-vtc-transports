@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Card } from '@/components/ui/card'
+import LegalNotice from '@/components/sections/LegalNotice'
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -16,6 +17,7 @@ export default function Contact() {
     phone: '0612345678',
     message: 'Bonjour, je souhaite réserver un transfert de l\'aéroport de Nice vers Saint-Tropez pour le 25 janvier. Merci de me contacter.',
   })
+  const [gdprConsent, setGdprConsent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
 
@@ -28,6 +30,14 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    // Vérifier le consentement RGPD
+    if (!gdprConsent) {
+      setSubmitStatus('consent-required')
+      setTimeout(() => setSubmitStatus(null), 5000)
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
@@ -215,10 +225,27 @@ export default function Contact() {
                 />
               </div>
 
+              {/* RGPD Consent */}
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="gdpr-consent"
+                  checked={gdprConsent}
+                  onChange={(e) => setGdprConsent(e.target.checked)}
+                  className="mt-1 w-4 h-4 rounded border-gray-600 bg-black text-gold focus:ring-gold focus:ring-offset-black cursor-pointer"
+                  required
+                />
+                <label htmlFor="gdpr-consent" className="text-sm text-gray-light cursor-pointer">
+                  {t('contact.form.gdpr.text')}{' '}
+                  <LegalNotice />
+                  <span className="text-red-500 ml-1">*</span>
+                </label>
+              </div>
+
               <Button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gold hover:bg-gold-light text-black font-semibold"
+                disabled={isSubmitting || !gdprConsent}
+                className="w-full bg-gold hover:bg-gold-light text-black font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Envoi...' : t('contact.form.submit')}
               </Button>
@@ -228,6 +255,9 @@ export default function Contact() {
               )}
               {submitStatus === 'error' && (
                 <p className="text-red-500 text-center">{t('contact.form.error')}</p>
+              )}
+              {submitStatus === 'consent-required' && (
+                <p className="text-red-500 text-center">{t('contact.form.gdpr.required')}</p>
               )}
             </form>
           </Card>

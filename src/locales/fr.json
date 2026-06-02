@@ -60,7 +60,11 @@
       "message": "Message",
       "submit": "Envoyer",
       "success": "Message envoyé avec succès !",
-      "error": "Erreur lors de l'envoi du message."
+      "error": "Erreur lors de l'envoi du message.",
+      "gdpr": {
+        "text": "J'accepte que mes données soient utilisées pour traiter ma demande conformément aux",
+        "required": "Vous devez accepter la politique de confidentialité pour envoyer le formulaire."
+      }
     }
   },
   "footer": {
