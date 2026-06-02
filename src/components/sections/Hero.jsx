@@ -26,6 +26,7 @@ export default function Hero() {
           muted
           loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover object-center"
         />
       </div>

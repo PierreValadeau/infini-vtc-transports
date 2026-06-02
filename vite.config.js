@@ -6,6 +6,13 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   base: '/infini-vtc-transports/',
+  server: {
+    host: true, // Écoute sur toutes les interfaces (0.0.0.0) pour Docker
+    port: 5173,
+    watch: {
+      usePolling: true, // Nécessaire pour le hot-reload dans Docker
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

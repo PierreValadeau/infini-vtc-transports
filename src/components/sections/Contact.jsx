@@ -49,7 +49,7 @@ export default function Contact() {
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
-          to_email: 'p.valadeau@outlook.fr',
+          to_email: 'infini@mhvtransports.com',
         })
 
         // Afficher le succès immédiatement pour une meilleure UX
