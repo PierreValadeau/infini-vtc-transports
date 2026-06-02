@@ -281,7 +281,7 @@ export default function Contact() {
                   </div>
                   <h3 className="text-2xl font-bold text-gold mb-2">Message envoyé !</h3>
                   <p className="text-gray-light mb-6">
-                    Nous vous recontacterons dans l'heure.
+                    Nous vous recontacterons rapidement.
                   </p>
                   <Button
                     onClick={() => setSubmitStatus(null)}
