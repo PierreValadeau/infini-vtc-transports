@@ -56,7 +56,9 @@ export default function Header() {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-2xl font-bold text-white hover:text-gray-300 transition-colors"
+            className="text-2xl font-bold text-white hover:text-gray-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
+            aria-label="Retour à l'accueil Infini VTC"
+            title="Infini VTC - Retour à l'accueil"
           >
             Infini
           </button>
@@ -67,7 +69,7 @@ export default function Header() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-white hover:text-gold transition-colors text-sm font-medium"
+                className="text-white hover:text-gold transition-colors text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm px-2 py-1"
               >
                 {item.label}
               </button>
@@ -82,7 +84,10 @@ export default function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white"
+              className="text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -99,7 +104,7 @@ export default function Header() {
             />
 
             {/* Menu Panel */}
-            <nav className="fixed top-0 right-0 h-screen w-4/5 max-w-sm bg-black border-l border-gold/20 md:hidden z-50 shadow-2xl animate-slide-in">
+            <nav id="mobile-menu" className="fixed top-0 right-0 h-screen w-4/5 max-w-sm bg-black border-l border-gold/20 md:hidden z-50 shadow-2xl animate-slide-in">
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-800">
@@ -120,7 +125,7 @@ export default function Header() {
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className="w-full text-left px-6 py-4 text-lg text-white hover:text-gold hover:bg-gold/5 transition-all border-l-4 border-transparent hover:border-gold"
+                      className="w-full text-left px-6 py-4 text-lg text-white hover:text-gold hover:bg-gold/5 transition-all border-l-4 border-transparent hover:border-gold focus-visible:outline-none focus-visible:bg-gold/10 focus-visible:border-gold"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       {item.label}

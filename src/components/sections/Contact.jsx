@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
-import { Mail, Phone, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MessageCircle, Loader2, CheckCircle, X as CloseIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -246,21 +246,59 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !gdprConsent}
-                className="w-full bg-gold hover:bg-gold-light text-black font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gold hover:bg-gold-light text-black font-semibold disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black transition-all"
               >
-                {isSubmitting ? 'Envoi...' : t('contact.form.submit')}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin mr-2 inline" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  t('contact.form.submit')
+                )}
               </Button>
 
-              {submitStatus === 'success' && (
-                <p className="text-white text-center">{t('contact.form.success')}</p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="text-red-500 text-center">{t('contact.form.error')}</p>
-              )}
               {submitStatus === 'consent-required' && (
-                <p className="text-red-500 text-center">{t('contact.form.gdpr.required')}</p>
+                <p className="text-red-500 text-center text-sm animate-fade-in-up">{t('contact.form.gdpr.required')}</p>
               )}
             </form>
+
+            {/* Success Modal */}
+            {submitStatus === 'success' && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-fade-in-up">
+                <Card className="relative max-w-md w-full p-8 bg-black border-2 border-gold text-center">
+                  <button
+                    onClick={() => setSubmitStatus(null)}
+                    className="absolute top-4 right-4 text-gray-light hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full"
+                    aria-label="Fermer"
+                  >
+                    <CloseIcon size={20} />
+                  </button>
+                  <div className="flex justify-center mb-4">
+                    <div className="rounded-full bg-gold/10 p-4">
+                      <CheckCircle size={48} className="text-gold" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gold mb-2">Message envoyé !</h3>
+                  <p className="text-gray-light mb-6">
+                    Nous vous recontacterons dans l'heure.
+                  </p>
+                  <Button
+                    onClick={() => setSubmitStatus(null)}
+                    className="bg-gold hover:bg-gold-light text-black font-semibold"
+                  >
+                    Fermer
+                  </Button>
+                </Card>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="mt-4 p-4 bg-red-500/10 border border-red-500 rounded-lg animate-fade-in-up">
+                <p className="text-red-500 text-center">{t('contact.form.error')}</p>
+              </div>
+            )}
           </Card>
         </div>
       </div>

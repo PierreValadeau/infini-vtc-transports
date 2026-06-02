@@ -12,7 +12,7 @@ export default {
           light: '#FFFFFF',
         },
         gray: {
-          light: '#A1A1A1',
+          light: '#CCCCCC',
         }
       },
       fontFamily: {
