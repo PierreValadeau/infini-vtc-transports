@@ -1,22 +1,27 @@
 import { useTranslation } from 'react-i18next'
-import { Button } from '@/components/ui/button'
+import { Switch } from '@/components/ui/switch'
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation()
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'fr' ? 'en' : 'fr'
+  const toggleLanguage = (checked) => {
+    const newLang = checked ? 'en' : 'fr'
     i18n.changeLanguage(newLang)
   }
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={toggleLanguage}
-      className="text-white hover:text-gold"
-    >
-      {i18n.language === 'fr' ? 'EN' : 'FR'}
-    </Button>
+    <div className="flex items-center gap-2">
+      <span className={`text-sm font-medium transition-colors ${i18n.language === 'fr' ? 'text-gold' : 'text-gray-light'}`}>
+        FR
+      </span>
+      <Switch
+        checked={i18n.language === 'en'}
+        onCheckedChange={toggleLanguage}
+        aria-label="Changer de langue"
+      />
+      <span className={`text-sm font-medium transition-colors ${i18n.language === 'en' ? 'text-gold' : 'text-gray-light'}`}>
+        EN
+      </span>
+    </div>
   )
 }

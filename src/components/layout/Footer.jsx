@@ -47,9 +47,9 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
+              aria-label="Instagram Infini Transports"
             >
               <Instagram size={18} />
-              <span>@infinitransports</span>
             </a>
           </div>
         </div>
