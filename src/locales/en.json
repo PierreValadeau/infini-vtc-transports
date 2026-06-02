@@ -73,5 +73,56 @@
     "about": "About",
     "coverage": "Area",
     "contact": "Contact"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "editor": {
+      "title": "Website Publisher",
+      "company": "Company name",
+      "legalForm": "Legal form",
+      "capital": "Share capital",
+      "address": "Registered office address",
+      "siret": "SIRET",
+      "rcs": "RCS",
+      "vat": "VAT number"
+    },
+    "director": {
+      "title": "Publication Director",
+      "name": "Name"
+    },
+    "contact": {
+      "title": "Contact",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "vtc": {
+      "title": "VTC License",
+      "license": "License number",
+      "prefecture": "Prefecture"
+    },
+    "insurance": {
+      "title": "Professional Liability Insurance",
+      "company": "Company",
+      "policy": "Policy number",
+      "insured": "Insured"
+    },
+    "host": {
+      "title": "Website Host",
+      "company": "Company",
+      "address": "Address",
+      "phone": "Phone"
+    },
+    "ip": {
+      "title": "Intellectual Property",
+      "content": "All content on this website (texts, images, logos, videos) are the exclusive property of MOBIL HOMES VACANCES or their respective authors. Any reproduction, distribution, modification or use without prior authorization is strictly prohibited."
+    },
+    "gdpr": {
+      "title": "Personal Data Protection (GDPR)",
+      "intro": "Information collected via the contact form is intended exclusively for MOBIL HOMES VACANCES for processing your request.",
+      "responsible": "Data Controller",
+      "purpose": "Purpose: Processing contact and booking requests.",
+      "rights": "In accordance with GDPR, you have the right to access, rectify, delete and object to the processing of your personal data.",
+      "exercise": "To exercise your rights, contact us at: infini@mhvtransports.com"
+    }
   }
 }

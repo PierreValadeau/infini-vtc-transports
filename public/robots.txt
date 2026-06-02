@@ -1,4 +1,11 @@
+# robots.txt pour Infini VTC
+
+# Permettre l'indexation par tous les robots
 User-agent: *
 Allow: /
 
-Sitemap: https://www.infini-vtc.fr/sitemap.xml
+# Sitemap
+Sitemap: https://pierrevaladeau.github.io/infini-vtc-transports/sitemap.xml
+
+# Fréquence de visite recommandée
+Crawl-delay: 10

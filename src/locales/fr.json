@@ -73,5 +73,56 @@
     "about": "À propos",
     "coverage": "Zone",
     "contact": "Contact"
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "editor": {
+      "title": "Éditeur du site",
+      "company": "Raison sociale",
+      "legalForm": "Forme juridique",
+      "capital": "Capital social",
+      "address": "Adresse du siège social",
+      "siret": "SIRET",
+      "rcs": "RCS",
+      "vat": "N° TVA intracommunautaire"
+    },
+    "director": {
+      "title": "Directeur de la publication",
+      "name": "Nom"
+    },
+    "contact": {
+      "title": "Contact",
+      "phone": "Téléphone",
+      "email": "Email"
+    },
+    "vtc": {
+      "title": "Licence VTC",
+      "license": "Numéro de licence",
+      "prefecture": "Préfecture"
+    },
+    "insurance": {
+      "title": "Assurance Responsabilité Civile Professionnelle",
+      "company": "Compagnie",
+      "policy": "Numéro de contrat",
+      "insured": "Assuré"
+    },
+    "host": {
+      "title": "Hébergeur du site",
+      "company": "Société",
+      "address": "Adresse",
+      "phone": "Téléphone"
+    },
+    "ip": {
+      "title": "Propriété intellectuelle",
+      "content": "L'ensemble des contenus présents sur ce site (textes, images, logos, vidéos) sont la propriété exclusive de MOBIL HOMES VACANCES ou de leurs auteurs respectifs. Toute reproduction, distribution, modification ou utilisation sans autorisation préalable est strictement interdite."
+    },
+    "gdpr": {
+      "title": "Protection des données personnelles (RGPD)",
+      "intro": "Les informations recueillies via le formulaire de contact sont destinées exclusivement à MOBIL HOMES VACANCES pour le traitement de votre demande.",
+      "responsible": "Responsable du traitement",
+      "purpose": "Finalité : Traitement des demandes de contact et de réservation.",
+      "rights": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition au traitement de vos données personnelles.",
+      "exercise": "Pour exercer vos droits, contactez-nous à : infini@mhvtransports.com"
+    }
   }
 }
