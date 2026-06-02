@@ -1,7 +1,9 @@
+import { lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Mail, Phone, Instagram } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
-import LegalNotice from '@/components/sections/LegalNotice'
+
+const LegalNotice = lazy(() => import('@/components/sections/LegalNotice'))
 
 export default function Footer() {
   const { t } = useTranslation()
@@ -58,7 +60,9 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-light">
           <p>{t('footer.copyright')}</p>
-          <LegalNotice />
+          <Suspense fallback={<span className="text-gold">...</span>}>
+            <LegalNotice />
+          </Suspense>
         </div>
       </div>
     </footer>
