@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import { Mail, Phone, MessageCircle, Loader2, CheckCircle, X as CloseIcon } from 'lucide-react'
@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Card } from '@/components/ui/card'
-import LegalNotice from '@/components/sections/LegalNotice'
+
+const LegalNotice = lazy(() => import('@/components/sections/LegalNotice'))
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -238,7 +239,9 @@ export default function Contact() {
                 />
                 <label htmlFor="gdpr-consent" className="text-sm text-gray-light cursor-pointer">
                   {t('contact.form.gdpr.text')}{' '}
-                  <LegalNotice />
+                  <Suspense fallback={<span className="text-gold">...</span>}>
+                    <LegalNotice />
+                  </Suspense>
                   <span className="text-red-500 ml-1">*</span>
                 </label>
               </div>

@@ -21,6 +21,8 @@ export default function About() {
                   <img
                     src={vehicleImage}
                     alt="Infini VTC - Notre service"
+                    width="1000"
+                    height="1000"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                     decoding="async"

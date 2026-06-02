@@ -44,6 +44,8 @@ export default function Vehicle() {
                   <img
                     src={photo.src}
                     alt={photo.alt}
+                    width="1600"
+                    height="900"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                     decoding="async"

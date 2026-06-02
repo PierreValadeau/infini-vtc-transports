@@ -26,7 +26,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           className="w-full h-full object-cover object-center"
         />
       </div>
@@ -55,31 +55,6 @@ export default function Hero() {
       >
         <ChevronDown size={32} />
       </button>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-
-        .animate-fade-in-delay {
-          animation: fade-in 1s ease-out 0.3s both;
-        }
-
-        .animate-fade-in-delay-2 {
-          animation: fade-in 1s ease-out 0.6s both;
-        }
-      `}</style>
     </section>
   )
 }
