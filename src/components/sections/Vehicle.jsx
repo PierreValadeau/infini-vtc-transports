@@ -3,10 +3,8 @@ import { Users, Luggage, Star, Tv, Circle, Baby } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import photo1 from '@/assets/images/photo-van/photo-avant-exterieur.jpeg'
 import photo2 from '@/assets/images/photo-van/photo-arriere-exterieur.jpeg'
-import photo3 from '@/assets/images/photo-van/photo-avant-volant.jpeg'
-import photo4 from '@/assets/images/photo-van/photo-avant-volant2.jpeg'
-import photo5 from '@/assets/images/photo-van/photo-arriere-interieur.jpeg'
-import photo6 from '@/assets/images/photo-van/photo-arriere-interieur2.jpeg'
+import photo3 from '@/assets/images/photo-van/photo-avant-volant2.jpeg'
+import photo4 from '@/assets/images/photo-van/photo-arriere-interieur.jpeg'
 
 export default function Vehicle() {
   const { t } = useTranslation()
@@ -34,14 +32,12 @@ export default function Vehicle() {
 
         <div className="max-w-6xl mx-auto">
           {/* Vehicle images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
               { src: photo1, alt: 'Mercedes Classe V - Avant extérieur' },
               { src: photo2, alt: 'Mercedes Classe V - Arrière extérieur' },
-              { src: photo3, alt: 'Mercedes Classe V - Volant' },
-              { src: photo4, alt: 'Mercedes Classe V - Volant 2' },
-              { src: photo5, alt: 'Mercedes Classe V - Intérieur arrière' },
-              { src: photo6, alt: 'Mercedes Classe V - Intérieur arrière 2' },
+              { src: photo3, alt: 'Mercedes Classe V - Intérieur volant' },
+              { src: photo4, alt: 'Mercedes Classe V - Intérieur arrière' },
             ].map((photo, index) => (
               <Card key={index} className="overflow-hidden border-gray-700 hover:border-gold/50 transition-colors">
                 <div className="aspect-video w-full overflow-hidden">
@@ -49,6 +45,9 @@ export default function Vehicle() {
                     src={photo.src}
                     alt={photo.alt}
                     className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ imageRendering: 'high-quality' }}
                   />
                 </div>
               </Card>

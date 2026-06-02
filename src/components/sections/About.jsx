@@ -22,6 +22,9 @@ export default function About() {
                     src={vehicleImage}
                     alt="Infini VTC - Notre service"
                     className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ imageRendering: 'high-quality' }}
                   />
                 </div>
               </Card>
