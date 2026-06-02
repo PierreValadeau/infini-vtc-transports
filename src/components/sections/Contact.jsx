@@ -44,39 +44,29 @@ export default function Contact() {
         setFormData({ name: '', email: '', phone: '', message: '' })
       } else {
         // Send email with EmailJS
-        console.log('Sending email with data:', {
+        const emailData = {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
           to_email: 'infini@mhvtransports.com',
-        })
+        }
 
-        // Afficher le succès immédiatement pour une meilleure UX
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' })
-        setIsSubmitting(false)
+        console.log('Sending email with data:', emailData)
 
-        // Envoyer l'email en arrière-plan
-        emailjs.send(
+        // Envoyer l'email et attendre la réponse
+        const response = await emailjs.send(
           serviceId,
           templateId,
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            message: formData.message,
-            to_email: 'infini@mhvtransports.com',
-          },
+          emailData,
           publicKey
-        ).then((response) => {
-          console.log('EmailJS response:', response)
-        }).catch((error) => {
-          console.error('Error sending email:', error)
-          // Erreur silencieuse car l'utilisateur a déjà vu le succès
-        })
+        )
 
-        return // Sortir du try pour éviter le finally
+        console.log('EmailJS response:', response)
+
+        // Afficher le succès seulement si l'envoi a réussi
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
       }
     } catch (error) {
       console.error('Error sending email:', error)
