@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react'
 import heroVideoMp4 from '@/assets/images/video-aerienne.mp4'
 import heroVideoWebm from '@/assets/images/video-aerienne.webm'
 import videoPoster from '@/assets/images/video-poster.webp'
+import videoPosterMobile from '@/assets/images/video-poster-mobile.jpg'
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -35,6 +36,8 @@ export default function Hero() {
         {!videoLoaded ? (
           <img
             src={videoPoster}
+            srcSet={`${videoPosterMobile} 640w, ${videoPoster} 1280w`}
+            sizes="100vw"
             alt="Côte d'Azur vue aérienne"
             width="1920"
             height="1080"

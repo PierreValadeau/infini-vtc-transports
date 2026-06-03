@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Preload critical images for LCP -->
-    <link rel="preload" as="image" href="/src/assets/images/video-poster.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/src/assets/images/video-poster-mobile.jpg" fetchpriority="high" media="(max-width: 767px)" />
+    <link rel="preload" as="image" href="/src/assets/images/video-poster.webp" fetchpriority="high" media="(min-width: 768px)" />
     <link rel="preload" as="image" href="/src/assets/images/logo-infini.png" fetchpriority="high" />
 
     <!-- DNS Prefetch -->
