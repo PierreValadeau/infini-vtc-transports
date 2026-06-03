@@ -28,14 +28,14 @@ export default function Footer() {
                 href="tel:0673652202"
                 className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
               >
-                <Phone size={18} />
+                <Phone className="w-6 h-6 md:w-5 md:h-5" />
                 <span>06 73 65 22 02</span>
               </a>
               <a
                 href="mailto:infini@mhvtransports.com"
                 className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
               >
-                <Mail size={18} />
+                <Mail className="w-6 h-6 md:w-5 md:h-5" />
                 <span>infini@mhvtransports.com</span>
               </a>
             </div>
@@ -51,7 +51,7 @@ export default function Footer() {
               className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
               aria-label="Instagram Infini Transports"
             >
-              <Instagram size={18} />
+              <Instagram className="w-6 h-6 md:w-5 md:h-5" />
             </a>
           </div>
         </div>
