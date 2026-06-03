@@ -64,9 +64,9 @@ export default function Header() {
             <img
               src={logoInfini}
               alt="Infini VTC Logo"
-              className="h-12 w-auto"
-              width="120"
-              height="48"
+              className="h-16 w-auto"
+              width="160"
+              height="64"
             />
           </button>
 
