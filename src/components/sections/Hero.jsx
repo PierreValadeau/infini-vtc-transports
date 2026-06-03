@@ -36,6 +36,8 @@ export default function Hero() {
           <img
             src={videoPoster}
             alt="Côte d'Azur vue aérienne"
+            width="1920"
+            height="1080"
             className="w-full h-full object-cover object-center"
             fetchpriority="high"
           />
@@ -45,6 +47,8 @@ export default function Hero() {
             muted
             loop
             playsInline
+            poster={videoPoster}
+            preload="metadata"
             className="w-full h-full object-cover object-center"
           >
             <source src={heroVideoWebm} type="video/webm" />

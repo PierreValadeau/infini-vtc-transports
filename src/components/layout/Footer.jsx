@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="bg-black border-t border-gray-800 py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Logo */}
           <div>
             <h3 className="text-2xl font-bold text-gold mb-4">Infini</h3>
@@ -38,21 +38,17 @@ export default function Footer() {
                 <Mail className="w-6 h-6 md:w-5 md:h-5" />
                 <span>infini@mhvtransports.com</span>
               </a>
+              <a
+                href="https://instagram.com/infinitransports"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
+                aria-label="Instagram Infini Transports"
+              >
+                <Instagram className="w-6 h-6 md:w-5 md:h-5" />
+                <span>@infinitransports</span>
+              </a>
             </div>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Suivez-nous</h4>
-            <a
-              href="https://instagram.com/infinitransports"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-light hover:text-gold transition-colors"
-              aria-label="Instagram Infini Transports"
-            >
-              <Instagram className="w-6 h-6 md:w-5 md:h-5" />
-            </a>
           </div>
         </div>
 

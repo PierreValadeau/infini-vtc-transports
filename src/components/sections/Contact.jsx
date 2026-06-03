@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import { Mail, Phone, MessageCircle, Loader2, CheckCircle, X as CloseIcon } from 'lucide-react'
@@ -21,6 +21,14 @@ export default function Contact() {
   const [gdprConsent, setGdprConsent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+
+  // Initialize EmailJS once on component mount for better performance
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -54,7 +62,7 @@ export default function Contact() {
         setFormData({ name: '', email: '', phone: '', message: '' })
         setGdprConsent(false)
       } else {
-        // Send email with EmailJS
+        // Send email with EmailJS (publicKey already initialized in useEffect)
         const emailData = {
           name: formData.name,
           email: formData.email,
@@ -63,13 +71,18 @@ export default function Contact() {
           to_email: 'infini@mhvtransports.com',
         }
 
-        // Envoyer l'email et attendre la réponse
-        await emailjs.send(
+        // Envoyer l'email avec timeout de 5 secondes
+        const sendPromise = emailjs.send(
           serviceId,
           templateId,
-          emailData,
-          publicKey
+          emailData
         )
+
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Timeout')), 5000)
+        )
+
+        await Promise.race([sendPromise, timeoutPromise])
 
         // Réinitialiser le formulaire après envoi réussi
         setSubmitStatus('success')
