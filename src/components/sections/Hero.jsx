@@ -13,14 +13,23 @@ export default function Hero() {
   const videoRef = useRef(null)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const video = videoRef.current
-      if (!video) return
+    const video = videoRef.current
+    if (!video) return
+
+    const tryPlay = () => {
       video.play()
         .then(() => setVideoVisible(true))
         .catch(() => { /* autoplay bloqué — l'image reste, pas de bouton play */ })
-    }, 100)
-    return () => clearTimeout(timer)
+    }
+
+    // Si assez de données dispo, jouer direct, sinon attendre canplay
+    if (video.readyState >= 3) {
+      tryPlay()
+    } else {
+      video.addEventListener('canplay', tryPlay, { once: true })
+    }
+
+    return () => video.removeEventListener('canplay', tryPlay)
   }, [])
 
   const scrollToContact = () => {
@@ -52,7 +61,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${videoVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src={heroVideoWebm} type="video/webm" />
