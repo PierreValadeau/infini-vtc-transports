@@ -33,7 +33,9 @@ export default function Header() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const headerHeight = 96
+      const top = element.getBoundingClientRect().top + window.scrollY - headerHeight
+      window.scrollTo({ top, behavior: 'smooth' })
       setIsMobileMenuOpen(false)
     }
   }

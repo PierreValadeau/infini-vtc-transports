@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from 'lucide-react'
 import heroVideoMp4 from '@/assets/images/video-aerienne.mp4'
@@ -9,12 +9,16 @@ import videoPosterMobile from '@/assets/images/video-poster-mobile.jpg'
 
 export default function Hero() {
   const { t } = useTranslation()
-  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [videoVisible, setVideoVisible] = useState(false)
+  const videoRef = useRef(null)
 
   useEffect(() => {
-    // Load video after initial paint to improve LCP
     const timer = setTimeout(() => {
-      setVideoLoaded(true)
+      const video = videoRef.current
+      if (!video) return
+      video.play()
+        .then(() => setVideoVisible(true))
+        .catch(() => { /* autoplay bloqué — l'image reste, pas de bouton play */ })
     }, 100)
     return () => clearTimeout(timer)
   }, [])
@@ -31,33 +35,29 @@ export default function Hero() {
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black z-10" />
 
-      {/* Hero background - Image first, then video */}
+      {/* Hero background - image toujours visible, vidéo par-dessus si autoplay autorisé */}
       <div className="absolute inset-0">
-        {!videoLoaded ? (
-          <img
-            src={videoPoster}
-            srcSet={`${videoPosterMobile} 640w, ${videoPoster} 1280w`}
-            sizes="100vw"
-            alt="Côte d'Azur vue aérienne"
-            width="1920"
-            height="1080"
-            className="w-full h-full object-cover object-center"
-            fetchpriority="high"
-          />
-        ) : (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={videoPoster}
-            preload="metadata"
-            className="w-full h-full object-cover object-center"
-          >
-            <source src={heroVideoWebm} type="video/webm" />
-            <source src={heroVideoMp4} type="video/mp4" />
-          </video>
-        )}
+        <img
+          src={videoPoster}
+          srcSet={`${videoPosterMobile} 640w, ${videoPoster} 1280w`}
+          sizes="100vw"
+          alt="Côte d'Azur vue aérienne"
+          width="1920"
+          height="1080"
+          className="w-full h-full object-cover object-center"
+          fetchpriority="high"
+        />
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${videoVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <source src={heroVideoWebm} type="video/webm" />
+          <source src={heroVideoMp4} type="video/mp4" />
+        </video>
       </div>
 
       {/* Content */}
