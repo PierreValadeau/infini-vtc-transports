@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 text-center px-4">
-        <h1 className="text-6xl md:text-8xl font-bold text-gold mb-6 animate-fade-in">
+        <h1 className="text-7xl md:text-9xl font-light text-gold mb-6 animate-fade-in tracking-widest" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
           {t('hero.title')}
         </h1>
         <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto animate-fade-in-delay">
